@@ -1,10 +1,13 @@
+import { Card, Row } from 'antd';
 import React, { FC } from 'react';
 
 const Home: FC = () => {
     return (
-        <div>
-            Home
-        </div>
+        <Row justify="center" align="middle">
+            <Card>
+                Вы авторизованы
+            </Card>
+        </Row>
     )
 }
 
