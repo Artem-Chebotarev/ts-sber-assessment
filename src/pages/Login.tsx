@@ -1,10 +1,11 @@
+import { Layout } from 'antd';
 import React, { FC } from 'react';
 
 const Login: FC = () => {
     return (
-        <div>
+        <Layout>
             Login
-        </div>
+        </Layout>
     )
 }
 

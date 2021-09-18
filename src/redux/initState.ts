@@ -1,12 +1,7 @@
-const initState = () => {
-    const state = {
-    
-    }
+import { AuthState } from "./reducers/auth/types";
 
-    // const fromLS = JSON.parse(window.localStorage.getItem('myApp'))
-    // return fromLS ? fromLS : state
-
-    return state;
+const initState: AuthState = {
+    isAuth: false,
 }
 
 export default initState;
