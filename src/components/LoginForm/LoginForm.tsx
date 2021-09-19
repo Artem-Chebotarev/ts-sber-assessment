@@ -1,20 +1,19 @@
 import { Form, Input, Button } from 'antd';
 import React, { FC, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { rules } from '../utils/rules';
-import { login } from '../redux/actionCreators/authAC'
-import { useTypedSelector } from '../hooks/useTypedSelector';
+import { rules } from '../../utils/rules';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useActions';
 
 const LoginForm: FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const dispatch = useDispatch();
-
     const { error, isLoading } = useTypedSelector(state => state.auth);
 
+    const { login } = useActions();
+
     const submit = () => {
-        dispatch(login(username, password));
+        login(username, password);
     }
 
     return (
@@ -30,9 +29,9 @@ const LoginForm: FC = () => {
                 name="username"
                 rules={[rules.required('Пожалуйста, введите имя пользователя!')]}
             >
-                <Input 
-                    value={username} 
-                    onChange={(event) => setUsername(event.target.value)} 
+                <Input
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)}
                 />
             </Form.Item>
             <Form.Item
@@ -40,9 +39,9 @@ const LoginForm: FC = () => {
                 name="password"
                 rules={[rules.required('Пожалуйста, введите пароль!')]}
             >
-                <Input 
+                <Input
                     type="password"
-                    value={password} 
+                    value={password}
                     onChange={(event) => setPassword(event.target.value)}
                 />
             </Form.Item>

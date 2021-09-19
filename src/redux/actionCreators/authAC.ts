@@ -25,7 +25,7 @@ export const login = (username: string, password: string): ThunkResult<void> => 
 
             if (mockUser) {
                 localStorage.setItem('auth', 'true');
-                localStorage.setItem('user', JSON.stringify(mockUser.username));
+                localStorage.setItem('username', mockUser.username);
 
                 dispatch(setIsAuth(true));
                 dispatch(setUser(mockUser));
